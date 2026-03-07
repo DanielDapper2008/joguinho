@@ -4,7 +4,7 @@ function buscarFilme()
 
     let nomeFilme = document.getElementById("pesquisa").value;
 
-    fetch(`https://screenscore-api-yrw8.onrender.com/filmes/externo?title=${nomeFilme}`).then(resposta => resposta.json()).then(dados => 
+    fetch(`https://screenscore-api-yrw8.onrender.com/filmes/externos?title=${nomeFilme}`).then(resposta => resposta.json()).then(dados => 
     {
         console.log(dados);
 
@@ -22,7 +22,7 @@ function buscarFilme()
                 "<p>Título Original: " + dados.movies[i].originalTitle + "</p>" +
                 "<p> Adulto: " + dados.movies[i].adult + "</p>" +
                 "<p>Data de Lançamento: " + dados.movies[i].releaseDate + "</p>" +
-                "<img src='" + dados.movies[i].posterImage + "' width='150'><hr>" + 
+                "<img src='https://image.tmdb.org/t/p/w500" + dados.movies[i].posterImage + "' width='150'><hr>" + 
                 "<p>Descrição: " + dados.movies[i].overview + "</p>" +
                 "<p>Generos: " + dados.movies[i].genres + "</p>";
             }
