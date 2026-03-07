@@ -3,16 +3,22 @@ function buscarFilme()
     console.log("funcção foi chamada")
 
     let nomeFilme = document.getElementById("pesquisa").value;
+    let resultado = document.getElementById("resultado");
 
-    fetch(`https://screenscore-api-yrw8.onrender.com/filmes/externos?title=${nomeFilme}`).then(resposta => resposta.json()).then(dados => 
+    fetch(`https://screenscore-api-yrw8.onrender.com/filmes/externos?title=${nomeFilme}`)
+    .then(resposta => { 
+
+        if(!resposta.ok)
+        {
+            throw new Error("Erro ao Buscar Filmes");
+        }
+        return resposta.json()
+    })
+    .then(dados => 
     {
-        console.log(dados);
-
-        let resultado = document.getElementById("resultado");
-
         resultado.innerHTML = "";
 
-        if(dados.movies)
+        if(dados.movies && dados.movies.length > 0)
         {
             for(let i = 0; i < dados.movies.length; i++)
             {
@@ -26,20 +32,6 @@ function buscarFilme()
                 "<p>Descrição: " + dados.movies[i].overview + "</p>" +
                 "<p>Generos: " + dados.movies[i].genres + "</p>";
             }
-        }
-        if(resposta.status === 400)
-        {
-            resultado.innerHTML = "Dados inválidos";
-        }
-
-        if(resposta.status === 500)
-        {
-            resultado.innerHTML = "Erro no servidor";
-        }
-
-        if(resposta.status === 502)
-        {
-            resultado.innerHTML = "Erro ao comunicar com API externa";
         }
         else
         {
