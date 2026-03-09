@@ -1,8 +1,22 @@
 body{
-    background: #262525;
+    background: #0F0F0F;
 }
 
-#buscah1{
+#sistemaNome{
+    margin-left: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+    color: #F5F5F5;
+}
+
+#descricaoSistema{
+    margin-left: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    color: #B3B3B3;
+}
+
+#buscah2{
     margin-left: 20px;
     font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
@@ -14,6 +28,7 @@ body{
     width: 500px;
     padding: 10px;
     font-size: 16px;
+    background: #1F1F1F;
 }
 
 #buscaButton{
@@ -22,14 +37,14 @@ body{
     font-size: 16px;
     margin-left: 10px;
     cursor: pointer;
-    background-color: #333;
-    color: white;
+    background-color: #E50914;
+    color: #FFFFFF;
     border: none;
     border-radius: 4px;
 }
 
 #buscaButton:hover{
-    background-color: #460404;
+    background-color: #FF2A2A;
     transition: 0.5s;
     color: white;
 }
