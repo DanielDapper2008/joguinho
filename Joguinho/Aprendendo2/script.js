@@ -22,6 +22,10 @@ function buscarFilme()
     let nomeFilme = document.getElementById("pesquisa").value;
     let resultado = document.getElementById("resultado");
 
+    let larguraResultado = resultado.offsetWidth;
+    let larguraCard = 180 + 1;
+    let quantidadeFilmes = Math.floor(larguraResultado / larguraCard);
+
     fetch(`https://screenscore-api-yrw8.onrender.com/filmes/externos?title=${nomeFilme}`)
     .then(resposta => { 
 
@@ -38,7 +42,7 @@ function buscarFilme()
 
         if(dados.movies && dados.movies.length > 0)
         {
-            for(let i = 0; i < 13; i++)
+            for(let i = 0; i < dados.movies.length && i < quantidadeFilmes; i++)
             {
                 let poster = dados.movies[i].posterImage;
 
