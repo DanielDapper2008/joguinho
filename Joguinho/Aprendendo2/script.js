@@ -84,10 +84,15 @@ function mostrarDescricao(botao, indice)
     "<div class='descricaoConteudo'>" + 
         "<p><b>Título:</b> " + movie.title + "</p>" +
         "<p><b>Sinopse:</b> " + movie.overview + "</p>" +
-        "<button id='descricaoButton' onclick='fecharDescricao'>Fechar</button>" +
+        "<button id='descricaoButton' onclick='fecharDescricao()'>Fechar</button>" +
     "</div>";
 
     card.appendChild(descricao);
+
+    // ativa a animação (igual ao input da lupa)
+    setTimeout(function(){
+        descricao.classList.add("ativa");
+    }, 10);
 }
 
 function fecharDescricao()
