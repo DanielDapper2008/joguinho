@@ -23,7 +23,7 @@ function buscarFilme()
     let resultado = document.getElementById("resultado");
 
     let larguraResultado = resultado.offsetWidth;
-    let larguraCard = 180 + 10;
+    let larguraCard = 150;
     let quantidadeFilmes = Math.floor(larguraResultado / larguraCard);
 
     fetch(`https://screenscore-api-yrw8.onrender.com/filmes/externos?title=${nomeFilme}`)
@@ -73,6 +73,9 @@ function buscarFilme()
 
 function mostrarDescricao(botao, indice)
 {
+    const antiga = document.querySelector(".descricaoBox");
+    if(antiga) antiga.remove();
+
     let movie = listaFilmes[indice];
 
     let card = botao.closest(".card-filme");
@@ -97,5 +100,6 @@ function mostrarDescricao(botao, indice)
 
 function fecharDescricao()
 {
-    document.getElementById("descricaoBox").remove();
+    const box = document.querySelector(".descricaoBox");
+    if(box) box.remove();
 }
